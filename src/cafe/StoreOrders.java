@@ -3,11 +3,13 @@ package cafe;
 import java.util.ArrayList;
 
 public class StoreOrders implements Customizable {
-    private ArrayList orderList = new ArrayList();
+    private ArrayList OrderList = new ArrayList();
+    private int numOrders = 0;
 
     public boolean add(Object obj) {
-        if (obj instanceof StoreOrders) {
-            orderList.add(obj);
+        if (obj instanceof Order) {
+            OrderList.add(obj);
+            this.numOrders++;
             return true;
         }
         return false;
@@ -15,15 +17,22 @@ public class StoreOrders implements Customizable {
 
 
     public boolean remove(Object obj) {
-        if (obj instanceof StoreOrders) {
-            StoreOrders orders = (StoreOrders) obj;
-            int storeOrderIndex =orderList.indexOf(orders);
-            if (storeOrderIndex < 0) {
-                return false;
+        if (obj instanceof Order) {
+            Order order = (Order) obj;
+            for (int i = 0; i <= numOrders; i++) {
+                Order currOrder = (Order) OrderList.get(i);
+                if (order.equals(currOrder)) {
+                    OrderList.remove(i);
+                    this.numOrders--;
+                    return true;
+                }
             }
-            orderList.remove(storeOrderIndex);
-            return true;
+            return false;
         }
         return false;
+    }
+
+    public void exportOrders() {
+
     }
 }

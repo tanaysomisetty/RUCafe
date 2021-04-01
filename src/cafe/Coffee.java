@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Coffee extends MenuItem implements Customizable {
     private String size;
     private ArrayList addInsList = new ArrayList();
+    private int numAddIns = 0;
     final static double SHORT_PRICE = 1.99;
     final static double TALL_PRICE = 2.49;
     final static double GRANDE_PRICE = 2.99;
@@ -14,19 +15,23 @@ public class Coffee extends MenuItem implements Customizable {
     public boolean add(Object obj) {
         if (obj instanceof AddIn) {
             addInsList.add(obj);
+            numAddIns++;
             return true;
         }
         return false;
     }
     public boolean remove(Object obj) {
-        if(obj instanceof AddIn) {
+        if (obj instanceof AddIn) {
             AddIn addin = (AddIn) obj;
-            int addInIndex = addInsList.indexOf(addin);
-            if (addInIndex < 0) {
-                return false;
+            for (int i = 0; i <= numAddIns; i++) {
+                AddIn currAddIn = (AddIn) addInsList.get(i);
+                if (addin.equals(currAddIn)) {
+                    addInsList.remove(i);
+                    this.numAddIns--;
+                    return true;
+                }
             }
-            addInsList.remove(addInIndex);
-            return true;
+            return false;
         }
         return false;
     }
@@ -60,5 +65,15 @@ public class Coffee extends MenuItem implements Customizable {
         else {
             return 0;
         }
+    }
+
+    /**
+     * Gives a string representation of a Coffee object
+     * @param 'none'
+     * @return a string in the format
+     */
+    @Override
+    public String toString() {
+        return "placeholder";
     }
 }

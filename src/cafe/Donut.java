@@ -19,6 +19,11 @@ public class Donut extends MenuItem implements Customizable{
         this.quantity = 1;
     }
 
+    /**
+     *
+     * @param obj
+     * @return
+     */
     public boolean add(Object obj) {
         if (obj instanceof Donut) {
             this.quantity++;
@@ -29,6 +34,11 @@ public class Donut extends MenuItem implements Customizable{
         }
     }
 
+    /**
+     * Method to remove a donut object
+     * @param  obj donut
+     * @return true if the donut is able to be removed, false otherwise
+     */
     public boolean remove(Object obj) {
         if(obj instanceof Donut) {
             this.quantity--;
@@ -40,6 +50,11 @@ public class Donut extends MenuItem implements Customizable{
 
     }
 
+    /**
+     * Calculates the total price of a donut depending on Donut Type
+     * @param 'none'
+     * @return price of the donut
+     */
     @Override
     public double itemPrice() {
         if (this.type.equals("yeast")) {
@@ -57,6 +72,18 @@ public class Donut extends MenuItem implements Customizable{
         else {
             return 0;
         }
+    }
 
+    /**
+     * Gives a string representation of a Donut object
+     * @param 'none'
+     * @return a string in the format "Donut Type,Flavor,Quantity"
+     */
+    @Override
+    public String toString() {
+        String donutType = this.type.substring(0, 1).toUpperCase() + this.type.substring(1);
+        String donutFlavor = this.flavor.substring(0, 1).toUpperCase() + this.flavor.substring(1);
+
+        return donutType + " Donut," + donutFlavor + ",Quantity: " + this.quantity;
     }
 }

@@ -16,4 +16,20 @@ public class AddIn {
         return type;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof AddIn) {
+            AddIn addIn = (AddIn) obj;
+            if (addIn.getType().equals(this.type)) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        else {
+            return false;
+        }
+    }
+
 }
