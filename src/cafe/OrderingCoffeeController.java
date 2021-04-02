@@ -66,7 +66,9 @@ public class OrderingCoffeeController {
 
     public void setCoffeeSize() {
         coffeeOrder.setSize((String) sizesComboBox.getSelectionModel().getSelectedItem());
-        coffeeTextArea.appendText("Coffee size set to: " + coffeeOrder.getSize() + "\n");
+        if (coffeeOrder.getSize() != null) {
+            coffeeTextArea.appendText("Coffee size set to: " + coffeeOrder.getSize() + "\n");
+        }
         coffeeOrder.itemPrice();
         subtotalText.setText(Double.toString(coffeeOrder.getPrice()));
     }
@@ -76,7 +78,8 @@ public class OrderingCoffeeController {
         if (event.getSource() instanceof CheckBox) {
             CheckBox chk = (CheckBox) event.getSource();
             if (chk.isSelected() && sizesComboBox.getSelectionModel().getSelectedItem() == null) {
-                coffeeTextArea.appendText("You must select a size first" + "\n");
+                coffeeTextArea.appendText("You must first select a size" + "\n");
+                chk.setSelected(false);
             }
             else if (sizesComboBox.getSelectionModel().getSelectedItem() != null){
                 if (chk.getText().equals("Cream")) {
@@ -160,6 +163,25 @@ public class OrderingCoffeeController {
                     }
                 }
             }
+        }
+    }
+
+    public void addToOrder() {
+        if (coffeeOrder.getSize().equals("")) {
+            coffeeTextArea.appendText("You must first select a size" + "\n");
+        }
+        else {
+            Order currOrder = MainMenuController.getOrder();
+            currOrder.add(coffeeOrder);
+            coffeeTextArea.appendText("Order placed for " + coffeeOrder.toString() + "\n");
+            sizesComboBox.getSelectionModel().clearSelection();
+            cream.setSelected(false);
+            syrup.setSelected(false);
+            milk.setSelected(false);
+            caramel.setSelected(false);
+            whippedCream.setSelected(false);
+            coffeeOrder = new Coffee();
+            subtotalText.setText(Double.toString(coffeeOrder.getPrice()));
         }
     }
 }

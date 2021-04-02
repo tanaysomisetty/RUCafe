@@ -17,6 +17,11 @@ public class MainMenuController {
     private static StoreOrders storeOrder = new StoreOrders();
 
 
+    public static Order getOrder() {
+        return currOrder;
+    }
+
+
     public void goToOrderingDonuts() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("OrderingDonuts.fxml"));
         try {

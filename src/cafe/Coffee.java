@@ -50,7 +50,10 @@ public class Coffee extends MenuItem implements Customizable {
 
     @Override
     public double itemPrice() {
-        if (this.size.equals("Short")) {
+        if (this.size == null) {
+            return 0;
+        }
+        else if (this.size.equals("Short")) {
             super.setPrice(SHORT_PRICE + addInsList.size() * .20);
             return super.getPrice();
         }
@@ -74,10 +77,17 @@ public class Coffee extends MenuItem implements Customizable {
     /**
      * Gives a string representation of a Coffee object
      * @param 'none'
-     * @return a string in the format
+     * @return a string in the format "Coffee,Size,Addin #1,Addin #2,etc"
      */
     @Override
     public String toString() {
-        return "placeholder";
+        String addins = "";
+
+        for (int i = 0; i < numAddIns; i++) {
+            String currAddIn = addInsList.get(i).toString();
+            addins = addins + "," + currAddIn;
+        }
+
+        return "Coffee," + this.size + addins;
     }
 }

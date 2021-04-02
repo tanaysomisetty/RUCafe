@@ -32,4 +32,9 @@ public class AddIn {
         }
     }
 
+    @Override
+    public String toString() {
+        return this.type;
+    }
+
 }
