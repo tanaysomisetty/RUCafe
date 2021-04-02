@@ -33,6 +33,7 @@ public class MainMenuController {
             mainMenuGrid.getScene().getWindow().hide();
         }
         catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -47,7 +48,7 @@ public class MainMenuController {
             mainMenuGrid.getScene().getWindow().hide();
         }
         catch (Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
 
@@ -62,6 +63,7 @@ public class MainMenuController {
             mainMenuGrid.getScene().getWindow().hide();
         }
         catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -76,6 +78,7 @@ public class MainMenuController {
             mainMenuGrid.getScene().getWindow().hide();
         }
         catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

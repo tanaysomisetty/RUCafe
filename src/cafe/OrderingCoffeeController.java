@@ -61,6 +61,7 @@ public class OrderingCoffeeController {
             coffeeGridPane.getScene().getWindow().hide();
         }
         catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

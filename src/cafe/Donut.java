@@ -4,9 +4,10 @@ public class Donut extends MenuItem implements Customizable{
     private String type;
     private String flavor;
     private int quantity;
-    final static double YEAST_PRICE = 1.39;
-    final static double CAKE_PRICE = 1.59;
-    final static double HOLE_PRICE = 0.33;
+    private final static double YEAST_PRICE = 1.39;
+    private final static double CAKE_PRICE = 1.59;
+    private final static double HOLE_PRICE = 0.33;
+    private static String[] donutFlavors = new String[]{"Plain", "Chocolate", "Strawberry"};
 
     /**
      Constructor for the Donut class that defines all attributes of the donut
@@ -17,6 +18,16 @@ public class Donut extends MenuItem implements Customizable{
         this.type = type;
         this.flavor = flavor;
         this.quantity = 1;
+    }
+
+    public Donut() {
+        this.type = "";
+        this.flavor = "";
+        this.quantity = 0;
+    }
+
+    public static String[] getDonutFlavors() {
+        return donutFlavors;
     }
 
     /**
