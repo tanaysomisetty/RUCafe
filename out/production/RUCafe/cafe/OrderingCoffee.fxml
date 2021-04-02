@@ -26,8 +26,8 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TextArea prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
-            <ComboBox fx:id="sizesComboBox" prefWidth="150.0" promptText="Pick A Size" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <TextArea fx:id="coffeeTextArea" editable="false" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
+            <ComboBox fx:id="sizesComboBox" onAction="#setCoffeeSize" prefWidth="150.0" promptText="Pick A Size" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
             <Button mnemonicParsing="false" onAction="#goToMainMenu" text="&lt;--" GridPane.valignment="TOP" />
             <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
               <columnConstraints>
@@ -40,11 +40,11 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <CheckBox fx:id="cream" mnemonicParsing="false" text="Cream" />
-                  <CheckBox fx:id="syrup" mnemonicParsing="false" text="Syrup" GridPane.columnIndex="1" />
-                  <CheckBox fx:id="milk" mnemonicParsing="false" text="Milk" GridPane.rowIndex="1" />
-                  <CheckBox fx:id="caramel" mnemonicParsing="false" text="Caramel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <CheckBox fx:id="whippedCream" mnemonicParsing="false" text="Whipped Cream" GridPane.rowIndex="2" />
+                  <CheckBox fx:id="cream" mnemonicParsing="false" onAction="#addInSelect" text="Cream" />
+                  <CheckBox fx:id="syrup" mnemonicParsing="false" onAction="#addInSelect" text="Syrup" GridPane.columnIndex="1" />
+                  <CheckBox fx:id="milk" mnemonicParsing="false" onAction="#addInSelect" text="Milk" GridPane.rowIndex="1" />
+                  <CheckBox fx:id="caramel" mnemonicParsing="false" onAction="#addInSelect" text="Caramel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <CheckBox fx:id="whippedCream" mnemonicParsing="false" onAction="#addInSelect" text="Whipped Cream" GridPane.rowIndex="2" />
                </children>
             </GridPane>
             <TextField fx:id="subtotalText" editable="false" maxWidth="100.0" prefHeight="27.0" prefWidth="164.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" />

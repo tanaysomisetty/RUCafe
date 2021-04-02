@@ -12,6 +12,10 @@ public class MainMenuController {
     @FXML
     private GridPane mainMenuGrid;
 
+    private static Order currOrder = new Order();
+
+    private static StoreOrders storeOrder = new StoreOrders();
+
 
     public void goToOrderingDonuts() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("OrderingDonuts.fxml"));
@@ -38,6 +42,7 @@ public class MainMenuController {
             mainMenuGrid.getScene().getWindow().hide();
         }
         catch (Exception e) {
+            System.out.println(e);
         }
     }
 

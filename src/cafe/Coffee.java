@@ -3,7 +3,7 @@ package cafe;
 import java.util.ArrayList;
 
 public class Coffee extends MenuItem implements Customizable {
-    private String size;
+    private String size = "";
     private ArrayList addInsList = new ArrayList();
     private int numAddIns = 0;
     final static double SHORT_PRICE = 1.99;
@@ -23,7 +23,7 @@ public class Coffee extends MenuItem implements Customizable {
     public boolean remove(Object obj) {
         if (obj instanceof AddIn) {
             AddIn addin = (AddIn) obj;
-            for (int i = 0; i <= numAddIns; i++) {
+            for (int i = 0; i < numAddIns; i++) {
                 AddIn currAddIn = (AddIn) addInsList.get(i);
                 if (addin.equals(currAddIn)) {
                     addInsList.remove(i);
@@ -44,21 +44,25 @@ public class Coffee extends MenuItem implements Customizable {
         this.size = size;
     }
 
+    public String getSize() {
+        return this.size;
+    }
+
     @Override
     public double itemPrice() {
-        if (this.size.equals("short")) {
+        if (this.size.equals("Short")) {
             super.setPrice(SHORT_PRICE + addInsList.size() * .20);
             return super.getPrice();
         }
-        else if (this.size.equals("tall")) {
+        else if (this.size.equals("Tall")) {
             super.setPrice(TALL_PRICE + addInsList.size() * .20);
             return super.getPrice();
         }
-        else if (this.size.equals("grande")) {
+        else if (this.size.equals("Grande")) {
             super.setPrice(GRANDE_PRICE + addInsList.size() *.20);
             return super.getPrice();
         }
-        else if (this.size.equals("venti")) {
+        else if (this.size.equals("Venti")) {
             super.setPrice(VENTI_PRICE + addInsList.size() * .20);
             return super.getPrice();
         }
