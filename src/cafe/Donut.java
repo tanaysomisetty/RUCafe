@@ -1,5 +1,8 @@
 package cafe;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 public class Donut extends MenuItem implements Customizable{
     private String type;
     private String flavor;
@@ -7,7 +10,7 @@ public class Donut extends MenuItem implements Customizable{
     private final static double YEAST_PRICE = 1.39;
     private final static double CAKE_PRICE = 1.59;
     private final static double HOLE_PRICE = 0.33;
-    private static String[] donutFlavors = new String[]{"Plain", "Chocolate", "Strawberry"};
+    private static String[] donutFlavors = new String[]{"Glazed", "Chocolate", "Strawberry"};
 
     /**
      Constructor for the Donut class that defines all attributes of the donut
@@ -24,6 +27,18 @@ public class Donut extends MenuItem implements Customizable{
         this.type = "";
         this.flavor = "";
         this.quantity = 0;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setFlavor(String flavor) {
+        this.flavor = flavor;
+    }
+
+    public int getQuantity() {
+        return this.quantity;
     }
 
     public static String[] getDonutFlavors() {
@@ -68,20 +83,23 @@ public class Donut extends MenuItem implements Customizable{
      */
     @Override
     public double itemPrice() {
+        DecimalFormat df = new DecimalFormat("#.##");
+        df.setRoundingMode(RoundingMode.UP);
+
         if (this.type.equals("yeast")) {
             super.setPrice(YEAST_PRICE * this.quantity);
-            return super.getPrice();
+            return Double.parseDouble(df.format(super.getPrice()));
         }
         else if (this.type.equals("cake")) {
             super.setPrice(CAKE_PRICE * this.quantity);
-            return super.getPrice();
+            return Double.parseDouble(df.format(super.getPrice()));
         }
         else if(this.type.equals("hole")) {
-            super.setPrice(HOLE_PRICE* this.quantity);
-            return super.getPrice();
+            super.setPrice(HOLE_PRICE * this.quantity);
+            return Double.parseDouble(df.format(super.getPrice()));
         }
         else {
-            return 0;
+            return 0.00;
         }
     }
 

@@ -66,8 +66,9 @@ public class OrderingCoffeeController {
     }
 
     public void setCoffeeSize() {
-        coffeeOrder.setSize((String) sizesComboBox.getSelectionModel().getSelectedItem());
-        if (coffeeOrder.getSize() != null) {
+
+        if (sizesComboBox.getSelectionModel().getSelectedItem() != null) {
+            coffeeOrder.setSize((String) sizesComboBox.getSelectionModel().getSelectedItem());
             coffeeTextArea.appendText("Coffee size set to: " + coffeeOrder.getSize() + "\n");
         }
         coffeeOrder.itemPrice();
@@ -87,15 +88,13 @@ public class OrderingCoffeeController {
                     if (chk.isSelected()) {
                         AddIn cream = new AddIn("cream");
                         coffeeOrder.add(cream);
-                        coffeeOrder.itemPrice();
-                        subtotalText.setText(Double.toString(coffeeOrder.getPrice()));
+                        subtotalText.setText(Double.toString(coffeeOrder.itemPrice()));
                         coffeeTextArea.appendText("Cream added" + "\n");
                     }
                     else {
                         AddIn cream = new AddIn("cream");
                         coffeeOrder.remove(cream);
-                        coffeeOrder.itemPrice();
-                        subtotalText.setText(Double.toString(coffeeOrder.getPrice()));
+                        subtotalText.setText(Double.toString(coffeeOrder.itemPrice()));
                         coffeeTextArea.appendText("Cream removed" + "\n");
                     }
                 }
@@ -103,15 +102,13 @@ public class OrderingCoffeeController {
                     if (chk.isSelected()) {
                         AddIn syrup = new AddIn("syrup");
                         coffeeOrder.add(syrup);
-                        coffeeOrder.itemPrice();
-                        subtotalText.setText(Double.toString(coffeeOrder.getPrice()));
+                        subtotalText.setText(Double.toString(coffeeOrder.itemPrice()));
                         coffeeTextArea.appendText("Syrup added" + "\n");
                     }
                     else {
                         AddIn syrup = new AddIn("syrup");
                         coffeeOrder.remove(syrup);
-                        coffeeOrder.itemPrice();
-                        subtotalText.setText(Double.toString(coffeeOrder.getPrice()));
+                        subtotalText.setText(Double.toString(coffeeOrder.itemPrice()));
                         coffeeTextArea.appendText("Syrup removed" + "\n");
                     }
                 }
@@ -119,15 +116,13 @@ public class OrderingCoffeeController {
                     if (chk.isSelected()) {
                         AddIn milk = new AddIn("milk");
                         coffeeOrder.add(milk);
-                        coffeeOrder.itemPrice();
-                        subtotalText.setText(Double.toString(coffeeOrder.getPrice()));
+                        subtotalText.setText(Double.toString(coffeeOrder.itemPrice()));
                         coffeeTextArea.appendText("Milk added" + "\n");
                     }
                     else {
                         AddIn milk = new AddIn("milk");
                         coffeeOrder.remove(milk);
-                        coffeeOrder.itemPrice();
-                        subtotalText.setText(Double.toString(coffeeOrder.getPrice()));
+                        subtotalText.setText(Double.toString(coffeeOrder.itemPrice()));
                         coffeeTextArea.appendText("Milk removed" + "\n");
                     }
                 }
@@ -135,15 +130,13 @@ public class OrderingCoffeeController {
                     if (chk.isSelected()) {
                         AddIn caramel = new AddIn("caramel");
                         coffeeOrder.add(caramel);
-                        coffeeOrder.itemPrice();
-                        subtotalText.setText(Double.toString(coffeeOrder.getPrice()));
+                        subtotalText.setText(Double.toString(coffeeOrder.itemPrice()));
                         coffeeTextArea.appendText("Caramel added" + "\n");
                     }
                     else {
                         AddIn caramel = new AddIn("caramel");
                         coffeeOrder.remove(caramel);
-                        coffeeOrder.itemPrice();
-                        subtotalText.setText(Double.toString(coffeeOrder.getPrice()));
+                        subtotalText.setText(Double.toString(coffeeOrder.itemPrice()));
                         coffeeTextArea.appendText("Caramel removed" + "\n");
                     }
                 }
@@ -151,22 +144,19 @@ public class OrderingCoffeeController {
                     if (chk.isSelected()) {
                         AddIn whippedCream = new AddIn("whippedCream");
                         coffeeOrder.add(whippedCream);
-                        coffeeOrder.itemPrice();
-                        subtotalText.setText(Double.toString(coffeeOrder.getPrice()));
+                        subtotalText.setText(Double.toString(coffeeOrder.itemPrice()));
                         coffeeTextArea.appendText("Whipped Cream added" + "\n");
                     }
                     else {
                         AddIn whippedCream = new AddIn("whippedCream");
                         coffeeOrder.remove(whippedCream);
-                        coffeeOrder.itemPrice();
-                        subtotalText.setText(Double.toString(coffeeOrder.getPrice()));
+                        subtotalText.setText(Double.toString(coffeeOrder.itemPrice()));
                         coffeeTextArea.appendText("Whipped Cream removed" + "\n");
                     }
                 }
             }
         }
     }
-
     public void addToOrder() {
         if (coffeeOrder.getSize().equals("")) {
             coffeeTextArea.appendText("You must first select a size" + "\n");

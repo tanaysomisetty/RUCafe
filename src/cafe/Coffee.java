@@ -2,6 +2,9 @@ package cafe;
 
 import java.util.ArrayList;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 public class Coffee extends MenuItem implements Customizable {
     private String size = "";
     private ArrayList addInsList = new ArrayList();
@@ -50,27 +53,30 @@ public class Coffee extends MenuItem implements Customizable {
 
     @Override
     public double itemPrice() {
+        DecimalFormat df = new DecimalFormat("#.##");
+        df.setRoundingMode(RoundingMode.UP);
+
         if (this.size == null) {
             return 0;
         }
         else if (this.size.equals("Short")) {
             super.setPrice(SHORT_PRICE + addInsList.size() * .20);
-            return super.getPrice();
+            return Double.parseDouble(df.format(super.getPrice()));
         }
         else if (this.size.equals("Tall")) {
             super.setPrice(TALL_PRICE + addInsList.size() * .20);
-            return super.getPrice();
+            return Double.parseDouble(df.format(super.getPrice()));
         }
         else if (this.size.equals("Grande")) {
             super.setPrice(GRANDE_PRICE + addInsList.size() *.20);
-            return super.getPrice();
+            return Double.parseDouble(df.format(super.getPrice()));
         }
         else if (this.size.equals("Venti")) {
             super.setPrice(VENTI_PRICE + addInsList.size() * .20);
-            return super.getPrice();
+            return Double.parseDouble(df.format(super.getPrice()));
         }
         else {
-            return 0;
+            return 0.00;
         }
     }
 

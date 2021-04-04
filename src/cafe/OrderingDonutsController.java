@@ -8,7 +8,8 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 import javafx.scene.layout.GridPane;
-
+import javafx.scene.control.TextField;
+import javafx.scene.control.TextArea;
 
 public class OrderingDonutsController {
 
@@ -24,6 +25,17 @@ public class OrderingDonutsController {
     private GridPane donutGridPane;
 
     @FXML
+    private TextField subtotalText;
+
+    @FXML
+    private TextField countText;
+
+    private int donutCount = 0;
+
+    @FXML
+    private TextArea donutTextArea;
+
+    @FXML
     public void initialize() {
         donutTypeList.getItems().addAll("Yeast Donut", "Cake Donut", "Donut Hole");
 
@@ -35,6 +47,7 @@ public class OrderingDonutsController {
                 flavors[CHOCOLATE_FLAVOR_INDEX], flavors[STRAWBERRY_FLAVOR_INDEX]);
 
         donutOrder = new Donut();
+        subtotalText.setText(Double.toString(donutOrder.getPrice()));
     }
 
     public void goToMainMenu() {
@@ -49,6 +62,77 @@ public class OrderingDonutsController {
         }
         catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    public void setDonutType() {
+        if (donutTypeList.getSelectionModel().getSelectedItem() != null) {
+            String type = (String) donutTypeList.getSelectionModel().getSelectedItem();
+            if (type.equals("Yeast Donut")) {
+                donutOrder.setType("yeast");
+            }
+            else if (type.equals("Cake Donut")) {
+                donutOrder.setType("cake");
+
+            }
+            else if (type.equals("Donut Hole")) {
+                donutOrder.setType("hole");
+            }
+            if (donutCount == 0) {
+                donutCount++;
+                donutOrder.add(donutOrder);
+                countText.setText(Integer.toString(donutOrder.getQuantity()));
+            }
+            subtotalText.setText(Double.toString(donutOrder.itemPrice()));
+            donutTextArea.appendText(type + " selected" + "\n");
+        }
+    }
+
+    public void setDonutFlavor() {
+        if (flavorsComboBox.getSelectionModel().getSelectedItem() != null) {
+            donutOrder.setFlavor((String) flavorsComboBox.getSelectionModel().getSelectedItem());
+            donutTextArea.appendText("Flavor set to: " + flavorsComboBox.getSelectionModel().getSelectedItem() + "\n");
+        }
+    }
+
+    public void minusCount() {
+        if (donutCount > 0 && donutTypeList.getSelectionModel().getSelectedItem() != null) {
+            donutCount--;
+            donutOrder.remove(donutOrder);
+            countText.setText(Integer.toString(donutOrder.getQuantity()));
+            subtotalText.setText(Double.toString(donutOrder.itemPrice()));
+        }
+    }
+
+    public void plusCount() {
+        if (donutTypeList.getSelectionModel().getSelectedItem() != null) {
+            donutCount++;
+            donutOrder.add(donutOrder);
+            countText.setText(Integer.toString(donutOrder.getQuantity()));
+            subtotalText.setText(Double.toString(donutOrder.itemPrice()));
+        }
+    }
+
+    public void addToOrder() {
+        if (donutTypeList.getSelectionModel().getSelectedItem() != null &&
+                flavorsComboBox.getSelectionModel().getSelectedItem() != null) {
+            if (donutCount == 0) {
+                donutTextArea.appendText("Please select a quantity greater than zero" + "\n");
+            }
+            else {
+                Order currOrder = MainMenuController.getOrder();
+                currOrder.add(donutOrder);
+                donutTextArea.appendText("Order placed for " + donutOrder.toString() + "\n");
+                donutTypeList.getSelectionModel().clearSelection();
+                flavorsComboBox.getSelectionModel().clearSelection();
+                donutOrder = new Donut();
+                donutCount = 0;
+                countText.setText(Integer.toString(donutOrder.getQuantity()));
+                subtotalText.setText(Double.toString(donutOrder.itemPrice()));
+            }
+        }
+        else {
+            donutTextArea.appendText("Please select a donut type and flavor" + "\n");
         }
     }
 
