@@ -7,13 +7,16 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.TableView;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.scene.control.TableColumn;
 import javafx.util.Callback;
+import javafx.scene.control.Alert;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +24,6 @@ import java.util.List;
 
 public class CurrentOrderController  {
 
-    private Order currentOrder;
 
     @FXML
     private GridPane currentOrderPane;
@@ -49,6 +51,9 @@ public class CurrentOrderController  {
 
     @FXML
     private TableColumn price;
+
+    @FXML
+    private Button btnPlaceOrder;
 
 
     @FXML
@@ -104,6 +109,12 @@ public class CurrentOrderController  {
         salesTaxText.setText(""+Order.SALES_TAX);
         totalText.setText(""+currentOrder.calculateTotalAmt());
 
+        if(currentOrder.getMenuItemList().size() == 0) {
+            btnPlaceOrder.setDisable(true);
+        }else {
+            btnPlaceOrder.setDisable(false);
+        }
+
 
 
     }
@@ -139,13 +150,23 @@ public class CurrentOrderController  {
             currentOrder.remove(item);
         }
 
-        initialize();
 
+        initialize();
 
     }
 
     public void placeOrder() {
+        Order currentOrder =  MainMenuController.getOrder();
+        StoreOrders storeOrders =  MainMenuController.getStoreOrders();
+        storeOrders.add(currentOrder);
+        currentOrder.removeAllItems();
 
+        initialize();
+        Alert a = new Alert(Alert.AlertType.INFORMATION);
+        a.setTitle(null);
+        a.setHeaderText(null);
+       a.setContentText("Order has been placed");
+       a.showAndWait();
     }
 
 

@@ -1,5 +1,7 @@
 package cafe;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -66,7 +68,9 @@ public class Order implements Customizable {
     }
 
     public double calculateTotalAmt() {
-        return this.subtotal + (this.subtotal * SALES_TAX);
+        DecimalFormat df = new DecimalFormat("#.##");
+        df.setRoundingMode(RoundingMode.UP);
+        return Double.parseDouble( df.format( this.subtotal + (this.subtotal * SALES_TAX)));
     }
 
 
@@ -84,6 +88,11 @@ public class Order implements Customizable {
         for(MenuItem item: menuItemList) {
             subtotal = subtotal + item.getPrice();
         }
+    }
+
+    public void removeAllItems() {
+        menuItemList.clear();
+        reCalculateSubTotal();
     }
 
     @Override

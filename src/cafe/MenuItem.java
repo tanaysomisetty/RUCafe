@@ -14,6 +14,7 @@ public class MenuItem {
     }
 
     /**
+     *Constructor that gets the menuID
      *
      * @param menuItemID
      */
@@ -22,7 +23,7 @@ public class MenuItem {
     }
 
     /**
-     *
+     *Method to
      * @param obj
      * @return
      */
@@ -44,7 +45,7 @@ public class MenuItem {
     }
 
     /**
-     Getter method to get the price
+     Accessory method to get the price
      @param 'none'
      @return double value price
      */
@@ -53,23 +54,35 @@ public class MenuItem {
     }
 
     /**
-     Setter method to set the price
+     Accessory method to set the price
      @param price
+     @return 'none'
      */
     public void setPrice(Double price) {
         this.price = price;
     }
 
+    /**
+     * Accessory method to get the menu item id
+     * @return integer value that corresponds to the menu ID
+     */
     public int getMenuItemID() {
         return this.menuItemID;
     }
 
 
-
+    /**
+     * Accessory method that gets the details of an item
+     * @return a string that corresponds to the details of the item
+     */
     public String getItemDetails(){
         return this.itemDetails;
     }
 
+    /**
+     * Accessory method that
+     * @return 'none'
+     */
     public void setItemDetails(){
 
     }
