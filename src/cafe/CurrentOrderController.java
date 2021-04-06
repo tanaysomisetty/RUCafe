@@ -21,7 +21,11 @@ import javafx.scene.control.Alert;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * The "control" class that implements functionalities for the current order GUI,
+ * such as displaying item ID, item details, and allowing the user to remove an order or place the order
+ * @author Sailokesh Mondi, Tanay Somisetty
+ */
 public class CurrentOrderController  {
 
 
@@ -55,9 +59,14 @@ public class CurrentOrderController  {
     @FXML
     private Button btnPlaceOrder;
 
+    final static int SALES_TAX_FACTOR = 100;
 
+    /**
+     *
+     */
     @FXML
     public void initialize() {
+
 
 
        itemID.setCellValueFactory(
@@ -104,9 +113,8 @@ public class CurrentOrderController  {
 
         });
 
-
         subTotalText.setText(""+currentOrder.getSubtotal());
-        salesTaxText.setText(""+Order.SALES_TAX);
+        salesTaxText.setText(""+Order.SALES_TAX*SALES_TAX_FACTOR);
         totalText.setText(""+currentOrder.calculateTotalAmt());
 
         if(currentOrder.getMenuItemList().size() == 0) {
@@ -119,6 +127,10 @@ public class CurrentOrderController  {
 
     }
 
+    /**
+     * Method to go to the main menu GUI from the current order GUI
+     * @return 'none'
+     */
     public void goToMainMenu() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainMenu.fxml"));
         try {
@@ -134,6 +146,11 @@ public class CurrentOrderController  {
         }
     }
 
+    /**
+     *Method to remove a selection from the item list in the current order GUI. Selection
+     * is removed when checkbox next to the selection is clicked
+     * @return 'none'
+     */
     public void removeOrder() {
         Order currentOrder =  MainMenuController.getOrder();
         List<MenuItem> menuItems = currentOrder.getMenuItemList();
@@ -155,6 +172,12 @@ public class CurrentOrderController  {
 
     }
 
+    /**
+     *Method to place an order from the item list in the current order GUI.
+     * After order is placed, an alert appears indicating it and order is
+     * added to the store orders GUI
+     * @return 'none'
+     */
     public void placeOrder() {
         Order currentOrder =  MainMenuController.getOrder();
         StoreOrders storeOrders =  MainMenuController.getStoreOrders();

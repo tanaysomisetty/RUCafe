@@ -11,6 +11,11 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextArea;
 
+/**
+ *The "control" class that implements functionalities for the ordering donuts GUI,
+ * such as selecting a flavor, donut type and quantities and adding to the order
+ * @author Sailokesh Mondi, Tanay Somisetty
+ */
 public class OrderingDonutsController {
 
     private Donut donutOrder;
@@ -35,6 +40,9 @@ public class OrderingDonutsController {
     @FXML
     private TextArea donutTextArea;
 
+    /**
+     *
+     */
     @FXML
     public void initialize() {
         donutTypeList.getItems().addAll("Yeast Donut", "Cake Donut", "Donut Hole");
@@ -50,6 +58,9 @@ public class OrderingDonutsController {
         subtotalText.setText(Double.toString(donutOrder.getPrice()));
     }
 
+    /**
+     *
+     */
     public void goToMainMenu() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainMenu.fxml"));
         try {
@@ -65,6 +76,9 @@ public class OrderingDonutsController {
         }
     }
 
+    /**
+     *
+     */
     public void setDonutType() {
         if (donutTypeList.getSelectionModel().getSelectedItem() != null) {
             String type = (String) donutTypeList.getSelectionModel().getSelectedItem();
@@ -88,6 +102,9 @@ public class OrderingDonutsController {
         }
     }
 
+    /**
+     *
+     */
     public void setDonutFlavor() {
         if (flavorsComboBox.getSelectionModel().getSelectedItem() != null) {
             donutOrder.setFlavor((String) flavorsComboBox.getSelectionModel().getSelectedItem());
@@ -95,6 +112,9 @@ public class OrderingDonutsController {
         }
     }
 
+    /**
+     *
+     */
     public void minusCount() {
         if (donutCount > 0 && donutTypeList.getSelectionModel().getSelectedItem() != null) {
             donutCount--;
@@ -104,6 +124,9 @@ public class OrderingDonutsController {
         }
     }
 
+    /**
+     *
+     */
     public void plusCount() {
         if (donutTypeList.getSelectionModel().getSelectedItem() != null) {
             donutCount++;
@@ -113,6 +136,9 @@ public class OrderingDonutsController {
         }
     }
 
+    /**
+     *
+     */
     public void addToOrder() {
         if (donutTypeList.getSelectionModel().getSelectedItem() != null &&
                 flavorsComboBox.getSelectionModel().getSelectedItem() != null) {

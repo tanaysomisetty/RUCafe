@@ -14,8 +14,8 @@ public class Donut extends MenuItem implements Customizable{
 
     /**
      Constructor for the Donut class that defines all attributes of the donut
-     @param type of donut
-     @param flavor of donut
+     @param type of donut object
+     @param flavor of donut object
      */
     public Donut(String type, String flavor) {
         this.type = type;
@@ -23,6 +23,10 @@ public class Donut extends MenuItem implements Customizable{
         this.quantity = 1;
     }
 
+    /**
+     * Default constructor that initializes the donut object to default
+     * attributes of type, flavor, and quantity
+     */
     public Donut() {
         this.type = "";
         this.flavor = "";
@@ -38,8 +42,8 @@ public class Donut extends MenuItem implements Customizable{
     }
 
     /**
-     * Setter method to set the flavor of the donut
-     * @param flavor of the donut
+     * Accessory method to set the flavor of the donut
+     * @param flavor of the donut object
      * @return 'none'
      */
     public void setFlavor(String flavor) {
@@ -47,7 +51,7 @@ public class Donut extends MenuItem implements Customizable{
     }
 
     /**
-     * Getter method to get the quantity of the donuts
+     * Accessory method to get the quantity of the donuts
      * @return the integer quantity of donuts
      */
     public int getQuantity() {
@@ -65,7 +69,7 @@ public class Donut extends MenuItem implements Customizable{
     /**
      *Method to
      * @param obj
-     * @return
+     * @return true if the donut can be added, false otherwise
      */
     public boolean add(Object obj) {
         if (obj instanceof Donut) {
@@ -78,7 +82,7 @@ public class Donut extends MenuItem implements Customizable{
     }
 
     /**
-     * Method to remove a donut object
+     * Removes a donut object
      * @param  obj donut
      * @return true if the donut is able to be removed, false otherwise
      */
@@ -96,7 +100,7 @@ public class Donut extends MenuItem implements Customizable{
     /**
      * Calculates the total price of a donut depending on Donut Type
      * @param 'none'
-     * @return price of the donut
+     * @return double value pertaining to the price of the donut
      */
     @Override
     public double itemPrice() {
@@ -133,6 +137,10 @@ public class Donut extends MenuItem implements Customizable{
         return donutType + " Donut," + donutFlavor + ",Quantity: " + this.quantity;
     }
 
+    /**
+     * Accessory method to set item details to be used in the current order GUI
+     * @return 'none'
+     */
     @Override
     public void setItemDetails(){
         super.setDetails(toString());

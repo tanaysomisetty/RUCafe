@@ -12,6 +12,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TextArea;
 import javafx.event.ActionEvent;
 
+/**
+ *The "control" class that implements functionalities for the ordering coffee GUI,
+ * such as selecting the size, adding add-ins, and adding to the order
+ * @author Sailokesh Mondi, Tanay Somisetty
+ */
 public class OrderingCoffeeController {
 
     private Coffee coffeeOrder;
@@ -53,7 +58,8 @@ public class OrderingCoffeeController {
     }
 
     /**
-     *
+     *Method to go to the main menu GUI from the ordering coffee GUI.
+     * @return 'none'
      */
     public void goToMainMenu() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainMenu.fxml"));
@@ -71,7 +77,9 @@ public class OrderingCoffeeController {
     }
 
     /**
-     *
+     *Method to set the coffee size of the coffee order. When the user
+     * selects a size, the size is displayed and appended to the text area.
+     * @return 'none'
      */
     public void setCoffeeSize() {
 
@@ -84,7 +92,7 @@ public class OrderingCoffeeController {
     }
 
     /**
-     *
+     *Method to
      * @param event
      */
     @FXML
@@ -171,7 +179,8 @@ public class OrderingCoffeeController {
     }
 
     /**
-     *
+     *Method to add an instance of coffee order to the overall
+     * @return 'none'
      */
     public void addToOrder() {
         if (coffeeOrder.getSize().equals("")) {

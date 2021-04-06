@@ -5,6 +5,11 @@ import java.util.ArrayList;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
+/**
+ *This class extends the MenuItem class and implements customizable.
+ * It includes specific data and operations pertaining to a coffee object
+ * @author Sailokesh Mondi, Tanay Somisetty
+ */
 public class Coffee extends MenuItem implements Customizable {
     private String size = "";
     private ArrayList addInsList = new ArrayList();

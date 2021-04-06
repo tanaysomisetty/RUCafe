@@ -1,5 +1,8 @@
 package cafe;
 
+/**
+ *
+ */
 public class MenuItem {
     private double price;
     private int menuItemID;

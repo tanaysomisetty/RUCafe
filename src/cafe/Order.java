@@ -5,6 +5,9 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ */
 public class Order implements Customizable {
     private List<MenuItem> menuItemList = new ArrayList<>();
     private int numItems = 0;
@@ -13,15 +16,27 @@ public class Order implements Customizable {
     private double subtotal = 0;
     final static double SALES_TAX = .06625;
 
+    /**
+     *
+     */
     public Order() {
         this.orderID = nextOrderID;
         nextOrderID++;
     }
 
+    /**
+     *
+     * @param orderID
+     */
     public Order(int orderID) {
         this.orderID = orderID;
     }
 
+    /**
+     *
+     * @param obj
+     * @return
+     */
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Order) {
@@ -38,6 +53,11 @@ public class Order implements Customizable {
         }
     }
 
+    /**
+     *
+     * @param obj
+     * @return
+     */
     public boolean add(Object obj) {
         if (obj instanceof MenuItem) {
             MenuItem item = (MenuItem) obj;
@@ -50,6 +70,11 @@ public class Order implements Customizable {
         return false;
     }
 
+    /**
+     *
+     * @param obj
+     * @return
+     */
     public boolean remove(Object obj) {
         if (obj instanceof MenuItem) {
             MenuItem item = (MenuItem) obj;
@@ -67,6 +92,10 @@ public class Order implements Customizable {
         return false;
     }
 
+    /**
+     *
+     * @return
+     */
     public double calculateTotalAmt() {
         DecimalFormat df = new DecimalFormat("#.##");
         df.setRoundingMode(RoundingMode.UP);
@@ -74,15 +103,25 @@ public class Order implements Customizable {
     }
 
 
-
+    /**
+     *
+     * @return
+     */
     public double getSubtotal() {
         return this.subtotal;
     }
 
+    /**
+     *
+     * @return
+     */
     public List getMenuItemList(){
         return this.menuItemList;
     }
 
+    /**
+     *
+     */
     private void reCalculateSubTotal() {
         subtotal = 0.0;
         for(MenuItem item: menuItemList) {
@@ -90,6 +129,9 @@ public class Order implements Customizable {
         }
     }
 
+    /**
+     *
+     */
     public void removeAllItems() {
         menuItemList.clear();
         reCalculateSubTotal();
