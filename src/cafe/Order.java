@@ -16,7 +16,10 @@ public class Order implements Customizable {
     private int orderID;
     private static int nextOrderID = 1;
     private double subtotal = 0;
+    private double total = 0.0;
+    private String details="Click To View";
     final static double SALES_TAX = .06625;
+    private boolean removed;
 
     /**
      *Default constructor that
@@ -67,6 +70,7 @@ public class Order implements Customizable {
             menuItemList.add(item);
             this.numItems++;
             subtotal = subtotal + item.getPrice();
+            total = calculateTotalAmt();
             return true;
         }
         return false;
@@ -130,6 +134,8 @@ public class Order implements Customizable {
         for(MenuItem item: menuItemList) {
             subtotal = subtotal + item.getPrice();
         }
+
+        total = calculateTotalAmt();
     }
 
     /**
@@ -159,5 +165,33 @@ public class Order implements Customizable {
             }
         }
         return output + "Total Amount: $" + this.calculateTotalAmt() + "\n";
+    }
+
+    public int getOrderID() {
+        return orderID;
+    }
+
+    /**
+     * Accessor method to get the total for all orders to be used in the store orders controller
+     * @return double value that represents the total amount of all orders
+     */
+    public double getTotal() {
+        return total;
+    }
+
+    /**
+     * Accessor method to get the details of all orders to be used in the store orders controller
+     * @return String that represent the details of all the orders
+     */
+    public String getDetails (){
+        return details;
+    }
+
+    public boolean isRemoved() {
+        return removed;
+    }
+
+    public void setRemoved(boolean removed) {
+        this.removed = removed;
     }
 }

@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cafe.StoreOrdersController">
    <children>
       <GridPane fx:id="storeOrdersPane" prefHeight="400.0" prefWidth="357.0">
@@ -30,15 +29,15 @@
                   <Insets left="45.0" top="5.0" />
                </GridPane.margin>
             </Text>
-            <TableView prefHeight="257.0" prefWidth="357.0" GridPane.rowIndex="1">
+            <TableView fx:id="tableView" onMouseClicked="#itemClicked" prefHeight="257.0" prefWidth="357.0" GridPane.rowIndex="1">
               <columns>
-                <TableColumn prefWidth="75.0" text="Select" />
-                <TableColumn prefWidth="83.0" text="Order ID" />
-                  <TableColumn prefWidth="106.0" text="Total Amount" />
-                  <TableColumn prefWidth="92.0" text="View Details" />
+                <TableColumn fx:id="select" prefWidth="75.0" text="Select" />
+                <TableColumn fx:id="orderID" prefWidth="83.0" text="Order ID" />
+                  <TableColumn fx:id="totalAmount" prefWidth="106.0" text="Total Amount" />
+                  <TableColumn fx:id="viewDetails" prefWidth="92.0" text="View Details" />
               </columns>
             </TableView>
-            <Button mnemonicParsing="false" text="Cancel Order" GridPane.rowIndex="2">
+            <Button mnemonicParsing="false" onAction="#cancelOrder" text="Cancel Order" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets left="5.0" />
                </GridPane.margin>
@@ -50,6 +49,6 @@
             </Button>
          </children>
       </GridPane>
-      <TextArea editable="false" layoutX="360.0" layoutY="35.0" prefHeight="322.0" prefWidth="232.0" />
+      <TextArea fx:id="textArea" editable="false" layoutX="360.0" layoutY="35.0" prefHeight="322.0" prefWidth="232.0" />
    </children>
 </AnchorPane>

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.io.File;
 import java.io.PrintWriter;
 import java.io.FileNotFoundException;
+import java.util.List;
 
 /**
  *This class implements Customizable and includes specific data
@@ -11,7 +12,7 @@ import java.io.FileNotFoundException;
  * @author Sailokesh Mondi, Tanay Somisetty
  */
 public class StoreOrders implements Customizable {
-    private ArrayList orderList = new ArrayList();
+    private List<Order> orderList = new ArrayList();
     private int numOrders = 0;
 
     /**
@@ -21,7 +22,7 @@ public class StoreOrders implements Customizable {
      */
     public boolean add(Object obj) {
         if (obj instanceof Order) {
-            orderList.add(obj);
+            orderList.add((Order)obj);
             this.numOrders++;
             return true;
         }
@@ -85,5 +86,9 @@ public class StoreOrders implements Customizable {
             return null;
         }
         return file;
+    }
+
+    public List<Order> getOrderList(){
+        return orderList;
     }
 }
