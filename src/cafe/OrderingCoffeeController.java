@@ -42,7 +42,9 @@ public class OrderingCoffeeController {
 
     @FXML
     private TextArea coffeeTextArea;
-
+    /**
+     *
+     */
     @FXML
     public void initialize() {
         sizesComboBox.getItems().addAll("Short", "Tall", "Grande", "Venti");
@@ -50,6 +52,9 @@ public class OrderingCoffeeController {
         subtotalText.setText(Double.toString(coffeeOrder.getPrice()));
     }
 
+    /**
+     *
+     */
     public void goToMainMenu() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainMenu.fxml"));
         try {
@@ -65,6 +70,9 @@ public class OrderingCoffeeController {
         }
     }
 
+    /**
+     *
+     */
     public void setCoffeeSize() {
 
         if (sizesComboBox.getSelectionModel().getSelectedItem() != null) {
@@ -75,6 +83,10 @@ public class OrderingCoffeeController {
         subtotalText.setText(Double.toString(coffeeOrder.getPrice()));
     }
 
+    /**
+     *
+     * @param event
+     */
     @FXML
     public void addInSelect(ActionEvent event) {
         if (event.getSource() instanceof CheckBox) {
@@ -157,6 +169,10 @@ public class OrderingCoffeeController {
             }
         }
     }
+
+    /**
+     *
+     */
     public void addToOrder() {
         if (coffeeOrder.getSize().equals("")) {
             coffeeTextArea.appendText("You must first select a size" + "\n");

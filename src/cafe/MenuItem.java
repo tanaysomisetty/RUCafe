@@ -3,7 +3,9 @@ package cafe;
 public class MenuItem {
     private double price;
     private int menuItemID;
+    private String itemDetails;
     private static int nextMenuItemID = 1;
+    private boolean active;
 
     public MenuItem() {
         this.menuItemID = nextMenuItemID;
@@ -11,10 +13,19 @@ public class MenuItem {
         this.price = 0;
     }
 
+    /**
+     *
+     * @param menuItemID
+     */
     public MenuItem(int menuItemID) {
         this.menuItemID = menuItemID;
     }
 
+    /**
+     *
+     * @param obj
+     * @return
+     */
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof MenuItem) {
@@ -53,8 +64,30 @@ public class MenuItem {
         return this.menuItemID;
     }
 
-    public double itemPrice() {
-        return 0;
+
+
+    public String getItemDetails(){
+        return this.itemDetails;
     }
 
+    public void setItemDetails(){
+
+    }
+
+
+    public void setDetails(String itemDetails){
+        this.itemDetails = itemDetails;
+    }
+
+    public double itemPrice(){
+        return price;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
 }

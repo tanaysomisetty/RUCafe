@@ -61,6 +61,8 @@ public class MainMenuController {
             stage.setScene(new Scene(root, 800, 800));
             stage.show();
             mainMenuGrid.getScene().getWindow().hide();
+
+
         }
         catch (Exception e) {
             e.printStackTrace();

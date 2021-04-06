@@ -29,24 +29,41 @@ public class Donut extends MenuItem implements Customizable{
         this.quantity = 0;
     }
 
+    /**
+     *
+     * @param type
+     */
     public void setType(String type) {
         this.type = type;
     }
 
+    /**
+     * Setter method to set the flavor of the donut
+     * @param flavor of the donut
+     * @return 'none'
+     */
     public void setFlavor(String flavor) {
         this.flavor = flavor;
     }
 
+    /**
+     * Getter method to get the quantity of the donuts
+     * @return the integer quantity of donuts
+     */
     public int getQuantity() {
         return this.quantity;
     }
 
+    /**
+     * Method to get the donut flavors
+     * @return a string array of the donut flavors
+     */
     public static String[] getDonutFlavors() {
         return donutFlavors;
     }
 
     /**
-     *
+     *Method to
      * @param obj
      * @return
      */
@@ -114,5 +131,10 @@ public class Donut extends MenuItem implements Customizable{
         String donutFlavor = this.flavor.substring(0, 1).toUpperCase() + this.flavor.substring(1);
 
         return donutType + " Donut," + donutFlavor + ",Quantity: " + this.quantity;
+    }
+
+    @Override
+    public void setItemDetails(){
+        super.setDetails(toString());
     }
 }

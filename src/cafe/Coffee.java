@@ -14,7 +14,11 @@ public class Coffee extends MenuItem implements Customizable {
     final static double GRANDE_PRICE = 2.99;
     final static double VENTI_PRICE = 3.49;
 
-
+    /**
+     *Method to
+     * @param obj
+     * @return
+     */
     public boolean add(Object obj) {
         if (obj instanceof AddIn) {
             addInsList.add(obj);
@@ -23,6 +27,12 @@ public class Coffee extends MenuItem implements Customizable {
         }
         return false;
     }
+
+    /**
+     *Method to
+     * @param obj
+     * @return
+     */
     public boolean remove(Object obj) {
         if (obj instanceof AddIn) {
             AddIn addin = (AddIn) obj;
@@ -40,17 +50,26 @@ public class Coffee extends MenuItem implements Customizable {
     }
 
     /**
-     * Setter method to set the size
-     * @param size
+     * Setter method to set the size of the coffee
+     * @param size of coffee
+     * @return 'none'
      */
     public void setSize(String size) {
         this.size = size;
     }
 
+    /**
+     * Getter method to get the size
+     * @return String that gets the size of the coffee
+     */
     public String getSize() {
         return this.size;
     }
 
+    /**
+     *Method to calculate the price for different  coffee sizes
+     * @return double that gets the price of the coffee
+     */
     @Override
     public double itemPrice() {
         DecimalFormat df = new DecimalFormat("#.##");
@@ -81,7 +100,7 @@ public class Coffee extends MenuItem implements Customizable {
     }
 
     /**
-     * Gives a string representation of a Coffee object
+     * Method to give a string representation of a Coffee object
      * @param 'none'
      * @return a string in the format "Coffee,Size,Addin #1,Addin #2,etc"
      */
@@ -95,5 +114,10 @@ public class Coffee extends MenuItem implements Customizable {
         }
 
         return "Coffee," + this.size + addins;
+    }
+
+    @Override
+    public void setItemDetails(){
+        super.setDetails(toString());
     }
 }

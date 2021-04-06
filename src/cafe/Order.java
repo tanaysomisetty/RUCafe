@@ -1,9 +1,10 @@
 package cafe;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Order implements Customizable {
-    private ArrayList MenuItemList = new ArrayList();
+    private List menuItemList = new ArrayList();
     private int numItems = 0;
     private int orderID;
     private static int nextOrderID = 1;
@@ -38,8 +39,11 @@ public class Order implements Customizable {
     public boolean add(Object obj) {
         if (obj instanceof MenuItem) {
             MenuItem item = (MenuItem) obj;
-            MenuItemList.add(item);
+            item.setItemDetails();
+            item.setActive(true);
+            menuItemList.add(item);
             this.numItems++;
+            subtotal = subtotal + item.getPrice();
             return true;
         }
         return false;
@@ -49,9 +53,9 @@ public class Order implements Customizable {
         if (obj instanceof MenuItem) {
             MenuItem item = (MenuItem) obj;
             for (int i = 0; i <= numItems; i++) {
-                MenuItem currItem = (MenuItem) MenuItemList.get(i);
+                MenuItem currItem = (MenuItem) menuItemList.get(i);
                 if (item.equals(currItem)) {
-                    MenuItemList.remove(i);
+                    menuItemList.remove(i);
                     this.numItems--;
                     return true;
                 }
@@ -63,6 +67,16 @@ public class Order implements Customizable {
 
     public double calculateTotalAmt() {
         return this.subtotal + (this.subtotal * SALES_TAX);
+    }
+
+
+
+    public double getSubtotal() {
+        return this.subtotal;
+    }
+
+    public List getMenuItemList(){
+        return this.menuItemList;
     }
 
     @Override
