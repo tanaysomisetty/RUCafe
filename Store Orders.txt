@@ -1,0 +1,4 @@
+Cake Donut,Glazed,Quantity: 5
+Coffee,Tall,milk,whippedCream,caramel,syrup
+Total Amount: $11.99
+====================
