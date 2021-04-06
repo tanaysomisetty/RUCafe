@@ -3,10 +3,8 @@ package cafe;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -17,7 +15,8 @@ import javafx.stage.Stage;
 import javafx.scene.control.TableColumn;
 import javafx.util.Callback;
 
-import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class CurrentOrderController  {
@@ -81,7 +80,7 @@ public class CurrentOrderController  {
 
                 CheckBox checkBox = new CheckBox();
 
-                checkBox.selectedProperty().setValue(item.isActive());
+                checkBox.selectedProperty().setValue(item.isRemoved());
 
 
 
@@ -89,7 +88,7 @@ public class CurrentOrderController  {
                     public void changed(ObservableValue<? extends Boolean> ov,
                                         Boolean old_val, Boolean new_val) {
 
-                        item.setActive(new_val);
+                        item.setRemoved(new_val);
 
                     }
                 });
@@ -100,7 +99,6 @@ public class CurrentOrderController  {
 
         });
 
-        tableView.getColumns().addAll( select);
 
         subTotalText.setText(""+currentOrder.getSubtotal());
         salesTaxText.setText(""+Order.SALES_TAX);
@@ -126,6 +124,23 @@ public class CurrentOrderController  {
     }
 
     public void removeOrder() {
+        Order currentOrder =  MainMenuController.getOrder();
+        List<MenuItem> menuItems = currentOrder.getMenuItemList();
+
+        List<MenuItem> removedItems = new ArrayList<>();
+
+        for(MenuItem item: menuItems) {
+            if(item.isRemoved()) {
+                removedItems.add(item);
+            }
+        }
+
+        for (MenuItem item: removedItems) {
+            currentOrder.remove(item);
+        }
+
+        initialize();
+
 
     }
 

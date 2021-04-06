@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Order implements Customizable {
-    private List menuItemList = new ArrayList();
+    private List<MenuItem> menuItemList = new ArrayList<>();
     private int numItems = 0;
     private int orderID;
     private static int nextOrderID = 1;
@@ -40,7 +40,6 @@ public class Order implements Customizable {
         if (obj instanceof MenuItem) {
             MenuItem item = (MenuItem) obj;
             item.setItemDetails();
-            item.setActive(true);
             menuItemList.add(item);
             this.numItems++;
             subtotal = subtotal + item.getPrice();
@@ -57,6 +56,7 @@ public class Order implements Customizable {
                 if (item.equals(currItem)) {
                     menuItemList.remove(i);
                     this.numItems--;
+                    reCalculateSubTotal();
                     return true;
                 }
             }
@@ -77,6 +77,13 @@ public class Order implements Customizable {
 
     public List getMenuItemList(){
         return this.menuItemList;
+    }
+
+    private void reCalculateSubTotal() {
+        subtotal = 0.0;
+        for(MenuItem item: menuItemList) {
+            subtotal = subtotal + item.getPrice();
+        }
     }
 
     @Override

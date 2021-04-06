@@ -5,7 +5,7 @@ public class MenuItem {
     private int menuItemID;
     private String itemDetails;
     private static int nextMenuItemID = 1;
-    private boolean active;
+    private boolean removed;
 
     public MenuItem() {
         this.menuItemID = nextMenuItemID;
@@ -83,11 +83,11 @@ public class MenuItem {
         return price;
     }
 
-    public boolean isActive() {
-        return active;
+    public boolean isRemoved() {
+        return removed;
     }
 
-    public void setActive(boolean active) {
-        this.active = active;
+    public void setRemoved(boolean removed) {
+        this.removed = removed;
     }
 }
