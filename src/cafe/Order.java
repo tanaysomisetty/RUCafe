@@ -6,7 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ *This class implements Customizable and specific data and operations pertaining to an order
+ * such as the orderID, number of items, sales tax and subtotal
+ * @author Sailokesh Mondi, Tanay Somisetty
  */
 public class Order implements Customizable {
     private List<MenuItem> menuItemList = new ArrayList<>();
@@ -17,7 +19,7 @@ public class Order implements Customizable {
     final static double SALES_TAX = .06625;
 
     /**
-     *
+     *Default constructor that
      */
     public Order() {
         this.orderID = nextOrderID;
@@ -25,17 +27,17 @@ public class Order implements Customizable {
     }
 
     /**
-     *
-     * @param orderID
+     *Clone constructor that creates a new order ID
+     * @param orderID of value int
      */
     public Order(int orderID) {
         this.orderID = orderID;
     }
 
     /**
-     *
-     * @param obj
-     * @return
+     *Method to check if two order items are equal based on their order IDS
+     * @param 'An' Object obj
+     * @return true if the two order items are equal, false otherwise
      */
     @Override
     public boolean equals(Object obj) {
@@ -54,9 +56,9 @@ public class Order implements Customizable {
     }
 
     /**
-     *
-     * @param obj
-     * @return
+     *Method to add instances of order in the currentOrder controller
+     * @param 'An' Object obj
+     * @return true if the order is added, false otherwise
      */
     public boolean add(Object obj) {
         if (obj instanceof MenuItem) {
@@ -71,9 +73,9 @@ public class Order implements Customizable {
     }
 
     /**
-     *
-     * @param obj
-     * @return
+     *Method to remove instances of order in the currentOrder controller
+     * @param 'An' Object obj
+     * @return true if the order is removed, false otherwise
      */
     public boolean remove(Object obj) {
         if (obj instanceof MenuItem) {
@@ -93,8 +95,8 @@ public class Order implements Customizable {
     }
 
     /**
-     *
-     * @return
+     *Method to calculate the total price of all items in the order, including the sales tax
+     * @return double value that corresponds to the total price of an instance of order
      */
     public double calculateTotalAmt() {
         DecimalFormat df = new DecimalFormat("#.##");
@@ -104,23 +106,24 @@ public class Order implements Customizable {
 
 
     /**
-     *
-     * @return
+     *Accessory method to get the subtotal
+     * @return a double value that corresponds to the subtotal
      */
     public double getSubtotal() {
         return this.subtotal;
     }
 
     /**
-     *
-     * @return
+     *Accessory method to get the list of menu items
+     * @return a List object
      */
     public List getMenuItemList(){
         return this.menuItemList;
     }
 
     /**
-     *
+     *Method to recalculate the subtotal in the
+     * @return 'none'
      */
     private void reCalculateSubTotal() {
         subtotal = 0.0;
@@ -130,15 +133,31 @@ public class Order implements Customizable {
     }
 
     /**
-     *
+     *Method to remove all the items from the current order list and reset the subtotal
+     * This method is called in the currentOrderController when the order is placed
+     * @return 'none'
      */
     public void removeAllItems() {
         menuItemList.clear();
         reCalculateSubTotal();
     }
-
+    /**
+     *
+     * @return
+     */
     @Override
-    public String toString() {  //format: "Coffee,3 Cream,2 Caramel,Size,
-        return "placeholder";
+    public String toString() {
+        String output = "";
+        for (Object obj : menuItemList) {
+            if (obj instanceof Donut) {
+                Donut currDonut = (Donut) obj;
+                output = output + currDonut.toString() + "\n";
+            }
+            else if (obj instanceof Coffee) {
+                Coffee currCoffee = (Coffee) obj;
+                output = output + currCoffee.toString() + "\n";
+            }
+        }
+        return output + "Total Amount: $" + this.calculateTotalAmt() + "\n";
     }
 }

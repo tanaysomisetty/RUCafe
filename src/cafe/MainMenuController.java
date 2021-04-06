@@ -30,6 +30,10 @@ public class MainMenuController {
         return currOrder;
     }
 
+    public static void setOrder(Order order) {
+        currOrder = order;
+    }
+
     /**
      * Accessory method to get the total store orders.
      * @return
@@ -53,7 +57,6 @@ public class MainMenuController {
             mainMenuGrid.getScene().getWindow().hide();
         }
         catch (Exception e) {
-            e.printStackTrace();
         }
     }
 
@@ -72,7 +75,6 @@ public class MainMenuController {
             mainMenuGrid.getScene().getWindow().hide();
         }
         catch (Exception e) {
-            e.printStackTrace();
         }
     }
 
@@ -93,7 +95,6 @@ public class MainMenuController {
 
         }
         catch (Exception e) {
-            e.printStackTrace();
         }
     }
 
@@ -105,13 +106,12 @@ public class MainMenuController {
         try {
             Parent root = fxmlLoader.load();
             Stage stage = new Stage();
-            stage.setTitle("Store Order");
+            stage.setTitle("Store Orders");
             stage.setScene(new Scene(root, 800, 800));
             stage.show();
             mainMenuGrid.getScene().getWindow().hide();
         }
         catch (Exception e) {
-            e.printStackTrace();
         }
     }
 }

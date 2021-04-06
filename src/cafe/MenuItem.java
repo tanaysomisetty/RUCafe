@@ -1,7 +1,9 @@
 package cafe;
 
 /**
- *
+ *This class defines all the attributes of the menu item such as the ID, the item details
+ * and the price
+ * @author Sailokesh Mondi, Tanay Somisetty
  */
 public class MenuItem {
     private double price;
@@ -10,6 +12,9 @@ public class MenuItem {
     private static int nextMenuItemID = 1;
     private boolean removed;
 
+    /**
+     * Default constructor that gets the menuItem ID and increments it
+     */
     public MenuItem() {
         this.menuItemID = nextMenuItemID;
         nextMenuItemID++;
@@ -26,9 +31,9 @@ public class MenuItem {
     }
 
     /**
-     *Method to
-     * @param obj
-     * @return
+     * Method to check if two menu items are equal based on their menu item IDS
+     * @param 'An' Object obj
+     * @return true if the two menu items are equal, false otherwise
      */
     @Override
     public boolean equals(Object obj) {
@@ -83,26 +88,41 @@ public class MenuItem {
     }
 
     /**
-     * Accessory method that
+     * Accessory method that sets the details of a menu item to be used in the current controller GUI
      * @return 'none'
      */
     public void setItemDetails(){
 
     }
 
-
+    /**
+     *
+     * @param itemDetails
+     */
     public void setDetails(String itemDetails){
         this.itemDetails = itemDetails;
     }
 
+    /**
+     * Accessory method that gets the price of the menu item
+     * @return a double value that corresponds to the price
+     */
     public double itemPrice(){
         return price;
     }
 
+    /**
+     *Method to check to see if a menu item has been removed
+     * @return
+     */
     public boolean isRemoved() {
         return removed;
     }
 
+    /**
+     *
+     * @param removed
+     */
     public void setRemoved(boolean removed) {
         this.removed = removed;
     }

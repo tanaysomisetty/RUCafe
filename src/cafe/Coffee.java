@@ -20,9 +20,9 @@ public class Coffee extends MenuItem implements Customizable {
     final static double VENTI_PRICE = 3.49;
 
     /**
-     *Method to
-     * @param obj
-     * @return
+     *Method to add instances of coffee in the coffee controller GUI
+     * @param 'An' Object obj
+     * @return true if the coffee is added, false otherwise
      */
     public boolean add(Object obj) {
         if (obj instanceof AddIn) {
@@ -34,9 +34,9 @@ public class Coffee extends MenuItem implements Customizable {
     }
 
     /**
-     *Method to
-     * @param obj
-     * @return
+     *Method to remove instances of coffee in the coffee controller GUI
+     * @param 'An' Object obj
+     * @return true if the coffee is removed from the list, false otherwise
      */
     public boolean remove(Object obj) {
         if (obj instanceof AddIn) {
@@ -73,7 +73,7 @@ public class Coffee extends MenuItem implements Customizable {
 
     /**
      *Method to calculate the price for different  coffee sizes
-     * @return double that gets the price of the coffee
+     * @return double value that gets the price of the coffee
      */
     @Override
     public double itemPrice() {
@@ -121,6 +121,10 @@ public class Coffee extends MenuItem implements Customizable {
         return "Coffee," + this.size + addins;
     }
 
+    /**
+     * Accessory method to set the item details. Calls the method in the parent class.
+     * @return 'none'
+     */
     @Override
     public void setItemDetails(){
         super.setDetails(toString());

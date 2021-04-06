@@ -3,6 +3,12 @@ package cafe;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
+/**
+ *This class extends the MenuItem class and includes specific data and operations for a donut object,
+ * such as the donut type, flavor and the quantity
+ * @author Sailokesh Mondi, Tanay Somisetty
+ */
+
 public class Donut extends MenuItem implements Customizable{
     private String type;
     private String flavor;
@@ -11,17 +17,6 @@ public class Donut extends MenuItem implements Customizable{
     private final static double CAKE_PRICE = 1.59;
     private final static double HOLE_PRICE = 0.33;
     private static String[] donutFlavors = new String[]{"Glazed", "Chocolate", "Strawberry"};
-
-    /**
-     Constructor for the Donut class that defines all attributes of the donut
-     @param type of donut object
-     @param flavor of donut object
-     */
-    public Donut(String type, String flavor) {
-        this.type = type;
-        this.flavor = flavor;
-        this.quantity = 1;
-    }
 
     /**
      * Default constructor that initializes the donut object to default
@@ -34,8 +29,8 @@ public class Donut extends MenuItem implements Customizable{
     }
 
     /**
-     *
-     * @param type
+     *Accessory method to set the type of the the donut
+     * @param type of the donut object of type String
      */
     public void setType(String type) {
         this.type = type;
@@ -43,7 +38,7 @@ public class Donut extends MenuItem implements Customizable{
 
     /**
      * Accessory method to set the flavor of the donut
-     * @param flavor of the donut object
+     * @param flavor of the donut object of type String
      * @return 'none'
      */
     public void setFlavor(String flavor) {
@@ -67,9 +62,9 @@ public class Donut extends MenuItem implements Customizable{
     }
 
     /**
-     *Method to
-     * @param obj
-     * @return true if the donut can be added, false otherwise
+     *Method to add quantity of donut instances in the donut controller GUI
+     * @param 'An' Object obj
+     * @return true if the donut is added, false otherwise
      */
     public boolean add(Object obj) {
         if (obj instanceof Donut) {
@@ -82,8 +77,8 @@ public class Donut extends MenuItem implements Customizable{
     }
 
     /**
-     * Removes a donut object
-     * @param  obj donut
+     *Method to remove quantity of donut instances in the donut controller GUI
+     * @param 'An' Object obj
      * @return true if the donut is able to be removed, false otherwise
      */
     public boolean remove(Object obj) {
