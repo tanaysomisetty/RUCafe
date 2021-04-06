@@ -76,7 +76,7 @@
                   <Insets left="50.0" />
                </GridPane.margin>
             </Text>
-            <Button mnemonicParsing="false" onAction="#placeOrder" text="Place Order" GridPane.rowIndex="3" />
+            <Button fx:id="btnPlaceOrder" mnemonicParsing="false" onAction="#placeOrder" text="Place Order" GridPane.rowIndex="3" />
          </children>
       </GridPane>
    </children>

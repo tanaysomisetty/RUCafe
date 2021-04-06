@@ -48,7 +48,8 @@ public class OrderingCoffeeController {
     @FXML
     private TextArea coffeeTextArea;
     /**
-     *
+     *Method to initialize the combo box and subtotal, and create the coffee object
+     * @return 'none'
      */
     @FXML
     public void initialize() {
@@ -92,8 +93,9 @@ public class OrderingCoffeeController {
     }
 
     /**
-     *Method to
-     * @param event
+     *Method to select attributes of a coffee object such as the size and add-ins in the GUI
+     * @param 'ActionEvent' object of the event that occurred
+     * @return 'none'
      */
     @FXML
     public void addInSelect(ActionEvent event) {
@@ -179,7 +181,7 @@ public class OrderingCoffeeController {
     }
 
     /**
-     *Method to add an instance of coffee order to the overall
+     *Method to reset the fields of the order object and add the coffee to the order object
      * @return 'none'
      */
     public void addToOrder() {

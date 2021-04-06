@@ -62,7 +62,9 @@ public class CurrentOrderController  {
     final static int SALES_TAX_FACTOR = 100;
 
     /**
-     *
+     *Method to initialize all the table columns and create objects pertaining to
+     * menuItemID, itemDetails and price
+     * @return 'none'
      */
     @FXML
     public void initialize() {
@@ -182,6 +184,8 @@ public class CurrentOrderController  {
         Order currentOrder =  MainMenuController.getOrder();
         StoreOrders storeOrders =  MainMenuController.getStoreOrders();
         storeOrders.add(currentOrder);
+        MainMenuController.setOrder(new Order());
+        currentOrder = MainMenuController.getOrder();
         currentOrder.removeAllItems();
 
         initialize();
