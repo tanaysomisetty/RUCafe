@@ -42,7 +42,6 @@ public class OrderingDonutsController {
 
     /**
      *Method to initialize the listview, combo box, and subtotal and create the donut object
-     *@return 'none'
      */
     @FXML
     public void initialize() {
@@ -61,7 +60,6 @@ public class OrderingDonutsController {
 
     /**
      *Method to go to the main menu GUI from the ordering donuts GUI
-     * @return 'none'
      */
     public void goToMainMenu() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainMenu.fxml"));
@@ -80,7 +78,6 @@ public class OrderingDonutsController {
 
     /**
      *Method to set the donut type in the GUI according to the three different types
-     * @return 'none'
      */
     public void setDonutType() {
         if (donutTypeList.getSelectionModel().getSelectedItem() != null) {
@@ -107,7 +104,6 @@ public class OrderingDonutsController {
 
     /**
      *Method to set the donut flavor in the GUI according to three different flavors
-     * @return 'none'
      */
     public void setDonutFlavor() {
         if (flavorsComboBox.getSelectionModel().getSelectedItem() != null) {
@@ -118,7 +114,6 @@ public class OrderingDonutsController {
 
     /**
      *Method to change the text in the GUI and call the remove method from the Donut class
-     * @return 'none'
      */
     public void minusCount() {
         if (donutCount > 0 && donutTypeList.getSelectionModel().getSelectedItem() != null) {
@@ -131,7 +126,6 @@ public class OrderingDonutsController {
 
     /**
      *Method to change the text in the GUI and call the add method from the Donut class
-     * @return 'none'
      */
     public void plusCount() {
         if (donutTypeList.getSelectionModel().getSelectedItem() != null) {
@@ -144,7 +138,6 @@ public class OrderingDonutsController {
 
     /**
      *Method to reset the fields of the order object and add the donut to the order object
-     * @return 'none'
      */
     public void addToOrder() {
         if (donutTypeList.getSelectionModel().getSelectedItem() != null &&

@@ -17,8 +17,8 @@ public class StoreOrders implements Customizable {
 
     /**
      * This method adds an order object to the list of store orders
-     * @param 'an' Object obj
-     * @return
+     * @param obj Object
+     * @return true if the order is added, false otherwise
      */
     public boolean add(Object obj) {
         if (obj instanceof Order) {
@@ -31,8 +31,8 @@ public class StoreOrders implements Customizable {
 
     /**
      *This method removes an order object from the list of store orders
-     * @param 'an' Object obj
-     * @return
+     * @param obj  Object
+     * @return true if the order is removed, false otherwise
      */
     public boolean remove(Object obj) {
         if (obj instanceof Order) {
@@ -68,8 +68,9 @@ public class StoreOrders implements Customizable {
     }
 
     /**
-     *
-     * @return
+     *Method to export the orders and save them to a text file. This method is
+     * called in the store orders controller
+     * @return a File object
      */
     public File exportOrders() {
         if (orderList.size() == 0) {
@@ -88,6 +89,10 @@ public class StoreOrders implements Customizable {
         return file;
     }
 
+    /**
+     * Accessory method to get the full array list of orders
+     * @return the array list of orders
+     */
     public List<Order> getOrderList(){
         return orderList;
     }

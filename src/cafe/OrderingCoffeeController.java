@@ -13,8 +13,7 @@ import javafx.scene.control.TextArea;
 import javafx.event.ActionEvent;
 
 /**
- *The "control" class that implements functionalities for the ordering coffee GUI,
- * such as selecting the size, adding add-ins, and adding to the order
+ *The "control" class that implements functionalities for the ordering coffee GUI
  * @author Sailokesh Mondi, Tanay Somisetty
  */
 public class OrderingCoffeeController {
@@ -49,7 +48,6 @@ public class OrderingCoffeeController {
     private TextArea coffeeTextArea;
     /**
      *Method to initialize the combo box and subtotal, and create the coffee object
-     * @return 'none'
      */
     @FXML
     public void initialize() {
@@ -60,7 +58,6 @@ public class OrderingCoffeeController {
 
     /**
      *Method to go to the main menu GUI from the ordering coffee GUI.
-     * @return 'none'
      */
     public void goToMainMenu() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainMenu.fxml"));
@@ -78,9 +75,8 @@ public class OrderingCoffeeController {
     }
 
     /**
-     *Method to set the coffee size of the coffee order. When the user
-     * selects a size, the size is displayed and appended to the text area.
-     * @return 'none'
+     *Method to set the coffee size of the coffee order
+     * When the user selects a size, the size is displayed and appended to the text area
      */
     public void setCoffeeSize() {
 
@@ -94,8 +90,7 @@ public class OrderingCoffeeController {
 
     /**
      *Method to select attributes of a coffee object such as the size and add-ins in the GUI
-     * @param 'ActionEvent' object of the event that occurred
-     * @return 'none'
+     * @param event object of the event that occurred
      */
     @FXML
     public void addInSelect(ActionEvent event) {
@@ -182,7 +177,6 @@ public class OrderingCoffeeController {
 
     /**
      *Method to reset the fields of the order object and add the coffee to the order object
-     * @return 'none'
      */
     public void addToOrder() {
         if (coffeeOrder.getSize().equals("")) {

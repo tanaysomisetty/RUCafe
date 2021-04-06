@@ -22,8 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * The "control" class that implements functionalities for the current order GUI,
- * such as displaying item ID, item details, and allowing the user to remove an order or place the order
+ * The "control" class that implements functionalities for the current order GUI.
  * @author Sailokesh Mondi, Tanay Somisetty
  */
 public class CurrentOrderController  {
@@ -62,9 +61,7 @@ public class CurrentOrderController  {
     final static int SALES_TAX_FACTOR = 100;
 
     /**
-     *Method to initialize all the table columns and create objects pertaining to
-     * menuItemID, itemDetails and price
-     * @return 'none'
+     *Method to initialize all the table columns and create objects pertaining to menuItemID, itemDetails, and price
      */
     @FXML
     public void initialize() {
@@ -87,7 +84,8 @@ public class CurrentOrderController  {
 
 
         select.setMinWidth(200);
-        select.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<MenuItem, CheckBox>, ObservableValue<CheckBox>>() {
+        select.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<MenuItem,
+                CheckBox>, ObservableValue<CheckBox>>() {
 
             @Override
             public ObservableValue<CheckBox> call(
@@ -131,7 +129,6 @@ public class CurrentOrderController  {
 
     /**
      * Method to go to the main menu GUI from the current order GUI
-     * @return 'none'
      */
     public void goToMainMenu() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainMenu.fxml"));
@@ -149,9 +146,8 @@ public class CurrentOrderController  {
     }
 
     /**
-     *Method to remove a selection from the item list in the current order GUI. Selection
-     * is removed when checkbox next to the selection is clicked
-     * @return 'none'
+     *Method to remove a selection from the item list in the current order GUI
+     *Selection is removed when checkbox next to the selection is clicked
      */
     public void removeOrder() {
         Order currentOrder =  MainMenuController.getOrder();
@@ -175,10 +171,8 @@ public class CurrentOrderController  {
     }
 
     /**
-     *Method to place an order from the item list in the current order GUI.
-     * After order is placed, an alert appears indicating it and order is
-     * added to the store orders GUI
-     * @return 'none'
+     *Method to place an order from the item list in the current order GUI
+     After order is placed, an alert appears indicating it and order is added to the store orders GUI
      */
     public void placeOrder() {
         Order currentOrder =  MainMenuController.getOrder();

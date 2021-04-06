@@ -39,7 +39,6 @@ public class Donut extends MenuItem implements Customizable{
     /**
      * Accessory method to set the flavor of the donut
      * @param flavor of the donut object of type String
-     * @return 'none'
      */
     public void setFlavor(String flavor) {
         this.flavor = flavor;
@@ -63,7 +62,7 @@ public class Donut extends MenuItem implements Customizable{
 
     /**
      *Method to add quantity of donut instances in the donut controller GUI
-     * @param 'An' Object obj
+     * @param obj Object
      * @return true if the donut is added, false otherwise
      */
     public boolean add(Object obj) {
@@ -78,7 +77,7 @@ public class Donut extends MenuItem implements Customizable{
 
     /**
      *Method to remove quantity of donut instances in the donut controller GUI
-     * @param 'An' Object obj
+     * @param obj Object
      * @return true if the donut is able to be removed, false otherwise
      */
     public boolean remove(Object obj) {
@@ -94,7 +93,6 @@ public class Donut extends MenuItem implements Customizable{
 
     /**
      * Calculates the total price of a donut depending on Donut Type
-     * @param 'none'
      * @return double value pertaining to the price of the donut
      */
     @Override
@@ -121,7 +119,6 @@ public class Donut extends MenuItem implements Customizable{
 
     /**
      * Gives a string representation of a Donut object
-     * @param 'none'
      * @return a string in the format "Donut Type,Flavor,Quantity"
      */
     @Override
@@ -134,7 +131,6 @@ public class Donut extends MenuItem implements Customizable{
 
     /**
      * Accessory method to set item details to be used in the current order GUI
-     * @return 'none'
      */
     @Override
     public void setItemDetails(){

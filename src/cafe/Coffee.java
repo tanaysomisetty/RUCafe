@@ -21,7 +21,7 @@ public class Coffee extends MenuItem implements Customizable {
 
     /**
      *Method to add instances of coffee in the coffee controller GUI
-     * @param 'An' Object obj
+     * @param obj Object
      * @return true if the coffee is added, false otherwise
      */
     public boolean add(Object obj) {
@@ -35,7 +35,7 @@ public class Coffee extends MenuItem implements Customizable {
 
     /**
      *Method to remove instances of coffee in the coffee controller GUI
-     * @param 'An' Object obj
+     * @param obj Object
      * @return true if the coffee is removed from the list, false otherwise
      */
     public boolean remove(Object obj) {
@@ -57,7 +57,6 @@ public class Coffee extends MenuItem implements Customizable {
     /**
      * Setter method to set the size of the coffee
      * @param size of coffee
-     * @return 'none'
      */
     public void setSize(String size) {
         this.size = size;
@@ -106,7 +105,6 @@ public class Coffee extends MenuItem implements Customizable {
 
     /**
      * Method to give a string representation of a Coffee object
-     * @param 'none'
      * @return a string in the format "Coffee,Size,Addin #1,Addin #2,etc"
      */
     @Override
@@ -123,7 +121,6 @@ public class Coffee extends MenuItem implements Customizable {
 
     /**
      * Accessory method to set the item details. Calls the method in the parent class.
-     * @return 'none'
      */
     @Override
     public void setItemDetails(){

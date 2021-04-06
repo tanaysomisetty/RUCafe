@@ -32,25 +32,35 @@
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="RU Cafe" />
             <Button mnemonicParsing="false" onAction="#goToOrderingDonuts" text="Order Donuts" GridPane.rowIndex="1">
                <graphic>
-                  <ImageView fitHeight="98.0" fitWidth="95.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="91.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../Desktop/RAMS.png" />
+                        <Image url="@../IMAGES/56-561056_png-file-svg-donut-icon-black-and-white.png" />
                      </image>
                   </ImageView>
                </graphic></Button>
-            <Button mnemonicParsing="false" onAction="#goToOrderingCoffee" text="Order Coffee" GridPane.rowIndex="2">
+            <Button mnemonicParsing="false" onAction="#goToOrderingCoffee" prefHeight="80.0" prefWidth="187.0" text="Order Coffee" GridPane.rowIndex="2">
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="49.0" fitWidth="93.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../IMAGES/download%20(1).png" />
+                     </image></ImageView>
                </graphic>
             </Button>
             <Button mnemonicParsing="false" onAction="#goToStoreOrders" text="All Store Orders" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <graphic>
-                  <ImageView fitHeight="79.0" fitWidth="95.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="69.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../IMAGES/77e50c04f9f512a456eb3e135a1c013b.png" />
+                     </image></ImageView>
                </graphic>
             </Button>
             <Button mnemonicParsing="false" onAction="#goToCurrentOrder" text="View Current Order" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <graphic>
-                  <ImageView fitHeight="78.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="76.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../IMAGES/purchase-order.png" />
+                     </image>
+                  </ImageView>
                </graphic>
             </Button>
          </children>

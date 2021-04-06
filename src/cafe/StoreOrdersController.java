@@ -51,7 +51,6 @@ public class StoreOrdersController {
     /**
      *Method to initialize all the table columns and create objects pertaining to
      * menuItemID, itemDetails and price
-     * @return 'none'
      */
     @FXML
     public void initialize() {
@@ -106,27 +105,8 @@ public class StoreOrdersController {
 
     }
 
-    /*
-
-     - Comment blocks for each method and at the top of each file
-     - Java doc
-
-       StoreOrder.fxml:
-     - Checkboxes in the select column and when you click "Cancel Order" button, you call remove method from
-       StoreOrders.java
-     - Order ID and Total Amount Column
-     - When you click a button in view details column, call the toString method from Order.java and set the text
-       of the TextArea to that string
-
-     - Make sure to delete all unused methods, instance variables, and import statements
-     - Test a view times to see if its working.
-     - Make sure all numbers are two decimals places
-     */
-
-
     /**
      * Method to go to the main menu GUI from the store orders GUI
-     * @return 'none'
      */
     public void goToMainMenu() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainMenu.fxml"));
@@ -142,6 +122,10 @@ public class StoreOrdersController {
         }
     }
 
+    /**
+     * Method to cancel a selected order in the store order GUI. A selected
+     * order will be cancelled when cancel button is clicked
+     */
     public void cancelOrder() {
         StoreOrders storeOrders =  MainMenuController.getStoreOrders();
         List<Order> orders = storeOrders.getOrderList();
@@ -163,10 +147,18 @@ public class StoreOrdersController {
 
     }
 
+    /**
+     * Method to export the store orders to a text file. Calls exportOrders method
+     * in the Store Orders class
+     */
     public void export() {
         MainMenuController.getStoreOrders().exportOrders();
     }
 
+    /**
+     * Method to set the desired text with order details in the text area when view details
+     * is clicked
+     */
     public void itemClicked() {
         Order order = (Order)tableView.getSelectionModel().getSelectedItem();
         textArea.setText(order.toString());

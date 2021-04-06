@@ -8,8 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 
 /**
- *The "control" class that implements functionalities for the main menu GUI,
- * such as going to the ordering donuts, ordering coffee, current order and store order GUIs
+ *The "control" class that implements functionalities for the main menu GUI.
  * @author Sailokesh Mondi, Tanay Somisetty
  */
 
@@ -23,20 +22,24 @@ public class MainMenuController {
     private static StoreOrders storeOrder = new StoreOrders();
 
     /**
-     * Accessory method to get the current order.
-     * @return
+     * Accessory method to get the current order
+     * @return currOrder Object
      */
     public static Order getOrder() {
         return currOrder;
     }
 
+    /**
+     * Accessory method to set the current order
+     * @param order Object
+     */
     public static void setOrder(Order order) {
         currOrder = order;
     }
 
     /**
      * Accessory method to get the total store orders.
-     * @return
+     * @return store order Object
      */
     public static StoreOrders getStoreOrders() {
         return storeOrder;
@@ -44,7 +47,6 @@ public class MainMenuController {
 
     /**
      * Method to go to the ordering donuts GUI from the main menu GUI
-     * @return 'none'
      */
     public void goToOrderingDonuts() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("OrderingDonuts.fxml"));
@@ -62,7 +64,6 @@ public class MainMenuController {
 
     /**
      * Method to go to the ordering coffee GUI from the main menu GUI
-     * @return 'none'
      */
     public void goToOrderingCoffee() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("OrderingCoffee.fxml"));
@@ -80,7 +81,6 @@ public class MainMenuController {
 
     /**
      * Method to go to the current order GUI from the main menu GUI
-     * @return 'none'
      */
     public void goToCurrentOrder() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CurrentOrder.fxml"));

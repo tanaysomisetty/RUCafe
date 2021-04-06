@@ -1,8 +1,7 @@
 package cafe;
 
 /**
- *This class defines all the attributes of the menu item such as the ID, the item details
- * and the price
+ *This class defines all the attributes of the menu item such as the ID, the item details, and the price
  * @author Sailokesh Mondi, Tanay Somisetty
  */
 public class MenuItem {
@@ -23,7 +22,6 @@ public class MenuItem {
 
     /**
      *Constructor that gets the menuID
-     *
      * @param menuItemID
      */
     public MenuItem(int menuItemID) {
@@ -31,8 +29,8 @@ public class MenuItem {
     }
 
     /**
-     * Method to check if two menu items are equal based on their menu item IDS
-     * @param 'An' Object obj
+     * Method to check if two menu items are equal based on their menu item IDs
+     * @param obj Object
      * @return true if the two menu items are equal, false otherwise
      */
     @Override
@@ -53,25 +51,23 @@ public class MenuItem {
     }
 
     /**
-     Accessory method to get the price
-     @param 'none'
-     @return double value price
+     *Accessory method to get the price
+     *@return double value price
      */
     public double getPrice() {
         return this.price;
     }
 
     /**
-     Accessory method to set the price
-     @param price
-     @return 'none'
+     *Accessory method to set the price
+     *@param price
      */
     public void setPrice(Double price) {
         this.price = price;
     }
 
     /**
-     * Accessory method to get the menu item id
+     * Accessory method to get the menu item ID
      * @return integer value that corresponds to the menu ID
      */
     public int getMenuItemID() {
@@ -89,14 +85,13 @@ public class MenuItem {
 
     /**
      * Accessory method that sets the details of a menu item to be used in the current controller GUI
-     * @return 'none'
      */
     public void setItemDetails(){
 
     }
 
     /**
-     *
+     *Method to set the item details to be used in the current controller GUI
      * @param itemDetails
      */
     public void setDetails(String itemDetails){
@@ -112,16 +107,16 @@ public class MenuItem {
     }
 
     /**
-     *Method to check to see if a menu item has been removed
-     * @return
+     *Method to check to see if a menu item has been removed or not
+     * @return removed instance variable
      */
     public boolean isRemoved() {
         return removed;
     }
 
     /**
-     *
-     * @param removed
+     *Accessor method to set the removed variable that can be used in the current order controller
+     * @param removed instance variable
      */
     public void setRemoved(boolean removed) {
         this.removed = removed;
