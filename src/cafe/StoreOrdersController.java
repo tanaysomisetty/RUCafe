@@ -123,8 +123,8 @@ public class StoreOrdersController {
     }
 
     /**
-     * Method to cancel a selected order in the store order GUI. A selected
-     * order will be cancelled when cancel button is clicked
+     * Method to cancel a selected order in the store order GUI.
+     * A selected order will be cancelled when cancel button is clicked
      */
     public void cancelOrder() {
         StoreOrders storeOrders =  MainMenuController.getStoreOrders();

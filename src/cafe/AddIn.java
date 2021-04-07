@@ -1,14 +1,15 @@
 package cafe;
 
 /**
- *
+ *This class defines attributes for the add in coffee items such as the type of add in
+ * @author Sailokesh Mondi, Tanay Somisetty
  */
 public class AddIn {
     private String type;
 
     /**
-     *
-     * @param type String
+     *Constructor that gets the type of add-in
+     * @param type String which corresponds to the type of add-in
      */
     public AddIn(String type) {
         this.type = type;
@@ -22,6 +23,11 @@ public class AddIn {
         return type;
     }
 
+    /**
+     * Method that compares an object to see whether it is an instance of add-in
+     * @param obj Object
+     * @return true if the object is equal, false otherwise
+     */
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof AddIn) {
@@ -38,6 +44,10 @@ public class AddIn {
         }
     }
 
+    /**
+     * Method that is overwritten that gets the String representation of
+     * @return
+     */
     @Override
     public String toString() {
         return this.type;

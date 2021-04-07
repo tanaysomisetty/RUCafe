@@ -22,7 +22,7 @@ public class MenuItem {
 
     /**
      *Constructor that gets the menuID
-     * @param menuItemID
+     * @param menuItemID that corresponds to the menu item
      */
     public MenuItem(int menuItemID) {
         this.menuItemID = menuItemID;
@@ -60,7 +60,7 @@ public class MenuItem {
 
     /**
      *Accessory method to set the price
-     *@param price
+     *@param price of a double value
      */
     public void setPrice(Double price) {
         this.price = price;
@@ -92,7 +92,7 @@ public class MenuItem {
 
     /**
      *Method to set the item details to be used in the current controller GUI
-     * @param itemDetails
+     * @param itemDetails of type String
      */
     public void setDetails(String itemDetails){
         this.itemDetails = itemDetails;

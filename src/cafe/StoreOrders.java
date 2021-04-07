@@ -51,8 +51,8 @@ public class StoreOrders implements Customizable {
     }
 
     /**
-     *
-     * @return
+     *This method consists of the String representation of the full order list
+     * @return a String that corresponds to the order list
      */
     @Override
     public String toString() {
